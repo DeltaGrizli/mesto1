@@ -1,7 +1,6 @@
 import './index.css'
-import { initialCards, profile, popupEditProfile, profileEditTitle, profileEditSubtitle,
-    buttonOpenEditProfilePopup, buttonOpenAddCardPopup, popupEdit,
-    formAddCard, formEditProfile, buttonAvatarEdit, formEditAvatar, validationConfig } from '../constants/constants.js';
+import { profile, popupEditProfile, profileEditTitle, profileEditSubtitle, buttonOpenEditProfilePopup,
+    popupEdit, buttonOpenAddCardPopup, formAddCard, formEditProfile, buttonAvatarEdit, formEditAvatar, validationConfig } from '../constants/constants.js';
 import Card from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import Section from '../components/Section.js';
@@ -20,7 +19,7 @@ const popupEditt = new PopupWithForm('#edit', handleCardFormSubmit);
 const popupAvatar = new PopupWithForm('#popupEditAvatar', submitNewAvatar);
 
 const popupImage = new PopupWithImage('#photoImage');
-const userInfo = new UserInfo({ userName: '.profile__title', userJob: '.profile__subtitle' });
+const userInfo = new UserInfo({ selectorUserName: '.profile__title', selectorUserJob: '.profile__subtitle', selectorUserAvatar: '.profile__avatar' });
 const popupDeleteCard = new PopupDeleteCard('#popupDeleteCard', handleSubmitDeleteCard);
 
 const cardList = new Section(
@@ -149,7 +148,7 @@ popupProfile.setEventListeners();
 popupEditt.setEventListeners();
 popupImage.setEventListeners();
 popupAvatar.setEventListeners();
-cardList.renderItems();
 formProfile.enableValidation();
 formCards.enableValidation();
+formAvatar.enableValidation();
 popupDeleteCard.setEventListeners();

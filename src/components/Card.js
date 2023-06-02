@@ -1,6 +1,6 @@
 export default class Card {
-    constructor(data, cardSelector, {handleCardClick, handleDeleteCard, handleAddLike, handleRemoveLike}) {
-        this._data = data
+    constructor(data, myId, cardSelector, {handleCardClick, handleDeleteCard, handleAddLike, handleRemoveLike}) {
+        this._data = data;
         this._title = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
@@ -10,7 +10,7 @@ export default class Card {
         this._handleRemoveLike = handleRemoveLike;
         this._cardId = data._id;
         this._myID = myId;
-        this.likes = data.likes
+        this.likes = data.likes;
         this._ownerId = data.owner ? data.owner._id : null;
     }
 
@@ -53,6 +53,19 @@ export default class Card {
         this.gridCardElement.remove();
     }
 
+    generateCard() {
+        this._getTemplate()
+        this._data.owner._id !== this._myID ? this.gridCardElement.querySelector('.elements__trash').style.display = 'none' : ''
+        this._setEventListeners();
+        this._cardImage.src = this._link;
+        this._cardImage.alt = this._title;
+        this.gridCardElement.querySelector('.elements__title').textContent = this._title;
+        this._initialLike();
+        this.gridCardElement.cardInstance = this;
+        return this.gridCardElement;
+    }
+
+
     _createCard() {
         const elementsCard = this._getTemplate().cloneNode(true);
         const elementsImage = this._cardImage;
@@ -75,17 +88,5 @@ export default class Card {
         this._cardImage.addEventListener('click', () => {
             this._handleClick(this._title, this._link);
         });
-    }
-
-    generateCard() {
-        this._getTemplate()
-        this._data.owner._id !== this._myID ? this.gridCardElement.querySelector('.grid__trash').style.display = 'none' : ''
-        this._setEventListeners();
-        this._cardImage.src = this._link;
-        this._cardImage.alt = this._title;
-        this.gridCardElement.querySelector('.elements__title').textContent = this._title;
-        this._initialLike();
-        this.gridCardElement.cardInstance = this;
-        return this.gridCardElement;
     }
 }

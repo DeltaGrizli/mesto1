@@ -10,7 +10,7 @@ export default class PopupWithForm extends Popup {
         this._submitButtomText = this._submitButtom.textContent
     }
 
-    getInputValues() {
+    _getInputValues() {
         const formValues = {};
         this._inputList.forEach((input) =>{ 
             formValues[input.name] = input.value; 

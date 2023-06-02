@@ -140,8 +140,8 @@ buttonOpenAddCardPopup.addEventListener('click', function () {
 
 buttonAvatarEdit.addEventListener('click', () => {
     popupAvatar.open()
-    formAvatar.blockButtonOpened();
-    formAvatar.resetErrors();
+    formAvatar.disableSubmitButton();
+    formAvatar.resetError();
 })
 
 popupProfile.setEventListeners();

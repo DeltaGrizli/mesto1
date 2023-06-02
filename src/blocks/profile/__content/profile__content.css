@@ -10,7 +10,7 @@
     height: 120px;
 }
 
-.profile__container:before{
+.profile__content:before{
     top: 0;
     right: 0;
     bottom: 0;
@@ -25,7 +25,7 @@
     transition: 0.4s ease opacity;
 }
 
-.profile__container:hover:before{
+.profile__content:hover:before{
     opacity: 0.8;
     background-color: #000000;
 }

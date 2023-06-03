@@ -17,9 +17,6 @@ export class Api{
             headers: this.headers
         })
           .then(this._checkStatus)
-          .catch(error => {
-            console.error('Error:', error);
-          });
       } 
       getUserInfo() {
         return fetch(this.baseUrl + '/users/me', {
@@ -27,9 +24,6 @@ export class Api{
             headers: this.headers
         })
         .then(this._checkStatus)
-      .catch(error => {
-        console.error('Error:', error);
-      });
     }
 
     postNewCard({ name, link }) {
@@ -42,9 +36,6 @@ export class Api{
             })
         })
         .then(this._checkStatus)
-        .catch(error => {
-          console.error('Error:', error);
-        });
     }
 
     deleteCard(cardId){
@@ -53,9 +44,6 @@ export class Api{
             headers: this.headers,
         })
         .then(this._checkStatus)
-        .catch(error => {
-          console.error('Error:', error);
-        });
     }
 
     patchUserInfo({ name, about }) {
@@ -68,9 +56,6 @@ export class Api{
             })
         })
         .then(this._checkStatus)
-        .catch(error => {
-          console.error('Error:', error);
-        });
     }
 
     patchAvatarInfo({avatar}) {
@@ -82,9 +67,6 @@ export class Api{
             })
         })
         .then(this._checkStatus)
-        .catch(error => {
-          console.error('Error:', error);
-        });
     }
 
     putLike(cardId) {
@@ -93,9 +75,6 @@ export class Api{
             headers: this.headers
         })
         .then(this._checkStatus)
-      .catch(error => {
-        console.error('Error:', error);
-      });
     }
 
     deleteLike(cardId) {
@@ -104,9 +83,6 @@ export class Api{
             headers: this.headers
         })
         .then(this._checkStatus)
-        .catch(error => {
-          console.error('Error:', error);
-        });
     }
 }
 
